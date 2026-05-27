@@ -1,4 +1,4 @@
 === RELÁTORIO ===
-9 - Média:4.33333 - Reprovado
+madu - Média:5 - Recuperação
 
-Resumo: 0 aprovados, 0 em recuperação, 1 reprovados, 
+Resumo: 0 aprovados, 1 em recuperação, 0 reprovados, 

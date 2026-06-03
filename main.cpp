@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <fstream>
 #include <clocale>
+#include <ctime> // ADICIONADO PARA A TAREFA 2
 
 using namespace std;
 
@@ -99,22 +100,27 @@ int main () {
             cout << "Recuperação: " << recuperacao << endl;
             cout << "Reprovados: " << reprovados << endl;
 
-            //SALVAR EM ARQUIVO (commit 4)
+            //SALVAR EM ARQUIVO (commit 4) - ACENTOS REMOVIDOS AQUI PARA NÃO BUGAR NO TERMINAL
             ofstream arquivo("relatorio.txt");
 
             if (arquivo.is_open()) {
-                arquivo << "=== RELÁTORIO ===" << endl;
+                // --- TAREFA 2 — Data e Hora no Relatório ---
+                time_t agora = time(0);
+                char* dataHora = ctime(&agora);
+                arquivo << "Data do relatorio: " << dataHora; // O ctime já pula linha automaticamente
+
+                arquivo << "=== RELATORIO ===" << endl; 
                 for (int i = 0; i < qtdAlunos; i++) {
-                    arquivo << nomes[i] << " - Média:" << media[i] << " - ";
+                    arquivo << nomes[i] << " - Media:" << media[i] << " - "; 
                     if (media[i] >= 7) {
                         arquivo << "Aprovado" << endl;
                     } else if (media[i] >= 5) {
-                        arquivo << "Recuperação" << endl;
+                        arquivo << "Recuperacao" << endl; 
                     } else { 
                         arquivo << "Reprovado" << endl;
                     }
                 }
-                arquivo << "\nResumo: " << aprovados << " aprovados, " << recuperacao << " em recuperação, " << reprovados << " reprovados, " << endl;
+                arquivo << "\nResumo: " << aprovados << " aprovados, " << recuperacao << " em recuperacao, " << reprovados << " reprovados," << endl;
                 arquivo.close();
                 cout << "\nRelatório salvo em relatorio.txt" << endl;
             } else {
@@ -139,7 +145,7 @@ int main () {
             // TAREFA 1 — Menu "Sobre o Sistema"
             cout << "\n=== SOBRE ===" << endl;
             cout << "Sistema de Notas v4.1" << endl;
-            cout << "Desenvolvido por: Seu Nome" << endl; // <-- Troque pelo seu nome!
+            cout << "Desenvolvido por: Maria Eduarda da Silva Mendes" << endl;
             cout << "Turma: LOPAL 2026 - SENAI-SP" << endl;
             
         } else if (opcaoInicial == 0) {
@@ -152,4 +158,3 @@ int main () {
 
     return 0; 
 }
-

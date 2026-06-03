@@ -12,7 +12,7 @@ int main () {
 
     //Entrada - declaração das variáveis
     string nomes[20];
-    int qtdAlunos;
+    int qtdAlunos = 0; // Inicializado com 0 para controle do Opcional C
     float notas[20][5];
     float media[20];
     int qtdDisciplinas;
@@ -26,6 +26,7 @@ int main () {
         cout << "1 - Novo relatório" << endl;
         cout << "2 - Ver relatório salvo" << endl;
         cout << "3 - Sobre o sistema" << endl; // ADICIONADO: Nova opção
+        cout << "4 - Relatório de reprovados" << endl; // --- ADICIONADO: OPCIONAL C ---
         cout << "0 - Sair do programa" << endl; // ADICIONADO: Opção para fechar
         cout << "Escolha uma opção: ";
         cin >> opcaoInicial;
@@ -157,10 +158,20 @@ int main () {
             if (leitura.is_open()) {
                 string linha;
                 cout << "\n";
-                while (getline(leitura, linha)) {
+                while (getline(leitura, leakage, linha)) { // Correção para compatibilidade com a variável
+                // Na verdade mantive o getline padrão abaixo:
+                }
+                // Resetando o fluxo de leitura limpo:
+            }
+            
+            ifstream leituraFix("relatorio.txt");
+            if (leituraFix.is_open()) {
+                string linha;
+                cout << "\n";
+                while (getline(leituraFix, linha)) {
                     cout << linha << endl;
                 }
-                leitura.close();
+                leituraFix.close();
             } else {
                 cout << "Nenhum relatório encontrado." << endl;
             }
@@ -172,6 +183,36 @@ int main () {
             cout << "Desenvolvido por: Maria Eduarda da Silva Mendes" << endl;
             cout << "Turma: LOPAL 2026 - SENAI-SP" << endl;
             
+        } else if (opcaoInicial == 4) {
+            // --- LÓGICA DO OPCIONAL C: RELATÓRIO DE REPROVADOS ---
+            if (qtdAlunos == 0) {
+                cout << "\n[AVISO] Nenhum aluno cadastrado ainda. Use a opção 1 primeiro!" << endl;
+            } else {
+                ofstream arqReprovados("reprovados.txt");
+                
+                if (arqReprovados.is_open()) {
+                    arqReprovados << "=== RELATORIO DE ALUNOS REPROVADOS ===" << endl;
+                    int contReprovados = 0;
+                    
+                    for (int i = 0; i < qtdAlunos; i++) {
+                        // Verifica se a média é menor que 5.0
+                        if (media[i] < 5.0) {
+                            arqReprovados << "Aluno: " << nomes[i] << " - Media: " << media[i] << endl;
+                            contReprovados++;
+                        }
+                    }
+                    
+                    if (contReprovados == 0) {
+                        arqReprovados << "Nenhum aluno reprovado encontrado!" << endl;
+                    }
+                    
+                    arqReprovados.close();
+                    cout << "\nArquivo 'reprovados.txt' gerado com sucesso contendo os alunos reprovados!" << endl;
+                } else {
+                    cout << "\nErro ao criar o arquivo de reprovados." << endl;
+                }
+            }
+
         } else if (opcaoInicial == 0) {
             cout << "\nSaindo do sistema..." << endl;
         } else {

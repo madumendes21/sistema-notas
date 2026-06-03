@@ -86,6 +86,10 @@ int main () {
             }
 
             int aprovados = 0, recuperacao = 0, reprovados = 0;
+            
+            // --- VARIÁVEIS ADICIONADAS PARA O OPCIONAL B ---
+            int indiceMaior = 0;
+            int indiceMenor = 0;
 
             cout << "\n=== STATUS DOS ALUNOS ===" << endl;
             for (int i = 0; i < qtdAlunos; i++) {
@@ -101,12 +105,24 @@ int main () {
                     cout << "Reprovado" << endl;
                     reprovados++;
                 }
+
+                // Lógica do Opcional B: Encontra o índice da maior e menor média
+                if (media[i] > media[indiceMaior]) {
+                    indiceMaior = i;
+                }
+                if (media[i] < media[indiceMenor]) {
+                    indiceMenor = i;
+                }
             }
 
             cout << "\n=== RESUMO GERAL ===" << endl;
             cout << "Aprovados: " << aprovados << endl;
             cout << "Recuperação: " << recuperacao << endl;
             cout << "Reprovados: " << reprovados << endl;
+            
+            // --- EXIBIÇÃO DO OPCIONAL B ---
+            cout << "Maior media: " << nomes[indiceMaior] << " (" << media[indiceMaior] << ")" << endl;
+            cout << "Menor media: " << nomes[indiceMenor] << " (" << media[indiceMenor] << ")" << endl;
 
             //SALVAR EM ARQUIVO (commit 4) - ACENTOS REMOVIDOS AQUI PARA NÃO BUGAR NO TERMINAL
             ofstream arquivo("relatorio.txt");

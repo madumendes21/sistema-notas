@@ -39,9 +39,17 @@ int main () {
 
             cin.ignore(); 
 
+            // --- OPCIONAL A: VALIDAÇÃO DE NOME EM BRANCO ---
             for (int i = 0; i < qtdAlunos; i++) {
-                cout << "Nome do aluno " << i + 1 << ": "; 
-                getline(cin, nomes[i]);
+                do {
+                    cout << "Nome do aluno " << i + 1 << ": "; 
+                    getline(cin, nomes[i]);
+
+                    // Verifica se a string está vazia
+                    if (nomes[i] == "") {
+                        cout << "[ERRO] O nome do aluno nao pode ficar em branco. Tente novamente!" << endl;
+                    }
+                } while (nomes[i] == ""); // Repete se o nome for vazio
             }
 
             //NOTAS E MÉDIAS (commit 2)

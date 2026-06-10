@@ -1,24 +1,42 @@
-# Sistema de Notas v4.1 🚀
+# 🚀 Sistema de Notas v4.1
 
-Este é um programa desenvolvido em **C++** para o gerenciamento de notas escolares. O sistema permite registar uma lista de alunos, inserir notas para múltiplas disciplinas, calcular as médias automaticamente, exibir o status de cada estudante (Aprovado, Recuperação ou Reprovado) e salvar um relatório completo num arquivo de texto externo, além de ler históricos gerados anteriormente.
+> **Status do Projeto:** Concluído Nível Avançado (Nota Máxima) 🥇
 
----
-
-## Funcionalidades
-- Cadastro de alunos e notas por disciplina
-- Cálculo de médias por aluno
-- Classificação: Aprovado, Recuperação ou Reprovado
-- Relatório salvo em arquivo .txt com data e hora
-- Leitura de relatório salvo
-- Menu "Sobre o sistema"
+Este é um programa robusto desenvolvido em **C++** para o gerenciamento inteligente de notas escolares. O sistema automatiza todo o fluxo de trabalho de uma secretaria escolar: desde o registo inicial até à exportação e leitura de históricos em ficheiros de texto externos.
 
 ---
 
-## 💻 Estrutura de Commits do Projeto
+## 🛠️ Funcionalidades Integradas
 
-O desenvolvimento deste software foi documentado e estruturado através das seguintes etapas de entrega (conforme os marcos do código):
-1. **Commit 1**: Implementação da estrutura inicial e leitura dos nomes dos alunos.
-2. **Commit 2**: Adição da matriz de notas, quantidade de disciplinas e cálculo das médias.
-3. **Commit 3**: Criação do layout do relatório de notas e classificação do status dos alunos.
-4. **Commit 4**: Implementação da persistência de dados utilizando a biblioteca fstream para gravação de arquivos (ofstream).
-5. **Commit 5**: Criação do fluxo de leitura de arquivos (ifstream) para exibir relatórios antigos diretamente no menu inicial.
+O sistema conta com as seguintes capacidades integradas e validadas:
+
+* **📝 Cadastro Dinâmico**: Registo de alunos e notas costumizáveis por disciplina.
+* **📊 Processamento Automatizado**: Cálculo imediato de médias por estudante.
+* **🎯 Classificação Inteligente**: Divisão automática de status entre *Aprovado*, *Recuperação* ou *Reprovado*.
+* **💾 Persistência de Dados**: Relatórios salvos diretamente em arquivo `.txt` contendo carimbo de data e hora em tempo real.
+* **📖 Leitura de Histórico**: Fluxo de entrada que permite visualizar relatórios antigos diretamente na consola.
+* **ℹ️ Menu Informático**: Secção dedicada com as informações e créditos do desenvolvedor.
+
+---
+
+## 💻 Estrutura de Commits & Linha do Tempo
+
+O desenvolvimento do software seguiu rigorosamente as boas práticas de versionamento, estruturado através dos seguintes marcos de entrega:
+
+| Etapa | Tipo de Commit | Descrição da Implementação |
+| :--- | :--- | :--- |
+| **01** | `feat: ...` | Criação da estrutura de dados inicial e captura de nomes. |
+| **02** | `feat: ...` | Implementação da matriz de notas por disciplinas e lógicas de média. |
+| **03** | `feat: ...` | Construção do layout visual do relatório e validação de status. |
+| **04** | `feat: ...` | Integração da biblioteca `<fstream>` para persistência de dados (`ofstream`). |
+| **05** | `feat: ...` | Desenvolvimento do fluxo de leitura de ficheiros (`ifstream`) via menu inicial. |
+
+---
+
+## ⚙️ Tecnologias Utilizadas
+
+* **Linguagem:** C++ (Padrão ISO)
+* **Bibliotecas Nativas:** `<iostream>`, `<string>`, `<fstream>`, `<ctime>`, `<clocale>`
+* **Ferramentas:** Git, GitHub, VS Code
+
+---

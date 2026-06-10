@@ -46,3 +46,5 @@ O desenvolvimento do software seguiu rigorosamente as boas práticas de versiona
 * **Ferramentas:** Git, GitHub, VS Code
 
 ---
+
+Feito por MaduTech
